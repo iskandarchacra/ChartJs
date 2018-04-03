@@ -1,0 +1,11 @@
+C:\Users\iskan\source\ChartJs\ChartJs\obj\Debug\netcoreapp2.0\ChartJs.csproj.CoreCompileInputs.cache
+C:\Users\iskan\source\ChartJs\ChartJs\obj\Debug\netcoreapp2.0\ChartJs.AssemblyInfoInputs.cache
+C:\Users\iskan\source\ChartJs\ChartJs\obj\Debug\netcoreapp2.0\ChartJs.AssemblyInfo.cs
+C:\Users\iskan\source\ChartJs\ChartJs\bin\Debug\netcoreapp2.0\ChartJs.deps.json
+C:\Users\iskan\source\ChartJs\ChartJs\bin\Debug\netcoreapp2.0\ChartJs.runtimeconfig.json
+C:\Users\iskan\source\ChartJs\ChartJs\bin\Debug\netcoreapp2.0\ChartJs.runtimeconfig.dev.json
+C:\Users\iskan\source\ChartJs\ChartJs\bin\Debug\netcoreapp2.0\ChartJs.dll
+C:\Users\iskan\source\ChartJs\ChartJs\bin\Debug\netcoreapp2.0\ChartJs.pdb
+C:\Users\iskan\source\ChartJs\ChartJs\obj\Debug\netcoreapp2.0\ChartJs.dll
+C:\Users\iskan\source\ChartJs\ChartJs\obj\Debug\netcoreapp2.0\ChartJs.pdb
+C:\Users\iskan\source\ChartJs\ChartJs\obj\Debug\netcoreapp2.0\ChartJs.csprojResolveAssemblyReference.cache
