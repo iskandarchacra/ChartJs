@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.0": {
-      "ChartJs/1.0.0": {
+      "ChartJs/2.0.0": {
         "dependencies": {
           "Newtonsoft.Json": "11.0.1"
         },
@@ -22,7 +22,7 @@
     }
   },
   "libraries": {
-    "ChartJs/1.0.0": {
+    "ChartJs/2.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
