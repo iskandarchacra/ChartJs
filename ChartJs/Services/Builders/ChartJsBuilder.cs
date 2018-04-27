@@ -6,6 +6,10 @@ using ChartJs.Services.Validators;
 
 namespace ChartJs.Services.Builders
 {
+    /// <summary>
+    /// This class is used to build Charts.
+    /// </summary>
+    /// <param name="chartVariableName">The name of the Javascript variable that has the HTML <canvas> element where the chart will be used. </param>
     public class ChartJsBuilder
     {
         readonly IRandomColorGenerator randomColorGenerator;
@@ -20,9 +24,8 @@ namespace ChartJs.Services.Builders
             this.chartJsonHelper = chartJsonHelper;
             this.defaultChartGenerator = defaultChartGenerator;
         }
-
         /// <summary>
-        /// This class is used to build Charts.
+        /// ChartJsBuilder constructor
         /// </summary>
         /// <param name="chartVariableName">The name of the Javascript variable that has the HTML <canvas> element where the chart will be used. </param>
         public ChartJsBuilder(string chartVariableName)
@@ -33,36 +36,64 @@ namespace ChartJs.Services.Builders
             defaultChartGenerator = new DefaultChartGenerator();
         }
 
+        /// <summary>
+        /// Start creating a Bar Chart
+        /// </summary>
+        /// <returns>BarDataStepsBuilder</returns>
         public BarDataStepsBuilder CreateBarChart()
         {
             return new BarDataStepsBuilder(randomColorGenerator, chartValidator, chartJsonHelper, defaultChartGenerator);
         }
 
+        /// <summary>
+        /// Start creating a Horizontal Bar Chart
+        /// </summary>
+        /// <returns>BarDataStepsBuilder</returns>
         public BarDataStepsBuilder CreateHorizontalBarChart()
         {
             return new BarDataStepsBuilder(randomColorGenerator, chartValidator, chartJsonHelper, defaultChartGenerator, true);
 		}
 
+        /// <summary>
+        /// Start creating a Pie Chart
+        /// </summary>
+        /// <returns>DoughnutDataStepsBuilder</returns>
         public DoughnutDataStepsBuilder CreatePieChart()
         {
             return new DoughnutDataStepsBuilder(randomColorGenerator, chartValidator, chartJsonHelper, defaultChartGenerator, true);
         }
 
+        /// <summary>
+        /// Start creating a Doughnut Chart
+        /// </summary>
+        /// <returns>DoughnutDataStepsBuilder</returns>
         public DoughnutDataStepsBuilder CreateDoughnutChart()
         {
             return new DoughnutDataStepsBuilder(randomColorGenerator, chartValidator, chartJsonHelper, defaultChartGenerator);
         }
 
+        /// <summary>
+        /// Start creating a Line Chart
+        /// </summary>
+        /// <returns>LineDataStepsBuilder</returns>
         public LineDataStepsBuilder CreateLineChart()
         {
             return new LineDataStepsBuilder(randomColorGenerator, chartValidator, chartJsonHelper, defaultChartGenerator);
         }
 
+        /// <summary>
+        /// Start creating a Radar Chart
+        /// </summary>
+        /// <returns>RadarDataStepsBuilder</returns>
         public RadarDataStepsBuilder CreateRadarChart()
         {
             return new RadarDataStepsBuilder(randomColorGenerator, chartValidator, chartJsonHelper, defaultChartGenerator);
         }
 
+        /// <summary>
+        /// Start creating a Bubble Chart
+        /// </summary>
+        /// <returns>BubbleDataStepsBuilder</returns>
         public BubbleDataStepsBuilder CreateBubbleChart()
         {
             return new BubbleDataStepsBuilder(randomColorGenerator, chartValidator, chartJsonHelper, defaultChartGenerator);
