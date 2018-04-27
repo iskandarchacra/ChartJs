@@ -1,4 +1,6 @@
-﻿namespace ChartJs
+﻿using ChartJs.Services.Builders;
+
+namespace ChartJs
 {
     public class Launcher
 	{
