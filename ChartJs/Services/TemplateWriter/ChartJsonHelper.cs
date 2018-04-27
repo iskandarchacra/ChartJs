@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using ChartJs.Models;
 using ChartJs.Models.Datasets;
 using ChartJs.Services.JsonConverters;
@@ -11,23 +12,21 @@ using Newtonsoft.Json.Serialization;
 
 namespace ChartJs.Services
 {
-    public class JsTemplateWriter : IJsTemplateWriter
+    public class ChartJsonHelper : IChartJsonHelper
     {
-		readonly string javascriptFile;
-        readonly string chartId;
+        readonly string chartVariableName;
 
-        public JsTemplateWriter(string javascriptFile, string chartId)
+        public ChartJsonHelper(string chartVariableName)
         {
-            this.javascriptFile = javascriptFile;
-            this.chartId = chartId;
+            this.chartVariableName = chartVariableName;
         }
 
-        public async void OverwriteTemplate<T>(Chart<T> chart) where T : Dataset
+        public string OverwriteTemplate<T>(Chart<T> chart) where T : Dataset
         {
-            var overWrittenTemplate = await ResourceHelper.GetChartJsTemplate();
+            var overWrittenTemplate = ResourceHelper.GetChartJsTemplate();
 
-            overWrittenTemplate = overWrittenTemplate.Replace("{chartId}", chartId);
-            overWrittenTemplate = overWrittenTemplate.Replace("{animation}", chart.Animation.ToString());
+            overWrittenTemplate = overWrittenTemplate.Replace("{CHART_VARIABLE}", chartVariableName);
+            overWrittenTemplate = overWrittenTemplate.Replace("{ANIMATION}", chart.Animation.ToString());
 
 			var chartJson = JsonConvert.SerializeObject
             (
@@ -44,9 +43,9 @@ namespace ChartJs.Services
 				}
 			);
 
-            overWrittenTemplate = overWrittenTemplate.Replace("{chart}", chartJson);
+            overWrittenTemplate = overWrittenTemplate.Replace("{CHART_JSON}", chartJson);
 
-			await File.WriteAllTextAsync(javascriptFile, overWrittenTemplate);
+            return overWrittenTemplate;
         }
 	}
 }

@@ -3,8 +3,8 @@ using ChartJs.Models.Datasets;
 
 namespace ChartJs.Services.TemplateWriter
 {
-    public interface IJsTemplateWriter
+    public interface IChartJsonHelper
     {
-        void OverwriteTemplate<T>(Chart<T> chart) where T : Dataset;
+        string OverwriteTemplate<T>(Chart<T> chart) where T : Dataset;
 	}
 }

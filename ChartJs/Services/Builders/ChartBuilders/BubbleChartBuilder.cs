@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using ChartJs.Models;
 using ChartJs.Models.Datasets;
 using ChartJs.Services.DefaultValuesGenerator;
@@ -11,20 +12,19 @@ namespace ChartJs.Services.Builders
     {
         protected override BubbleChartBuilder BuilderInstance => this;
 
-        public BubbleChartBuilder(IDefaultChartGenerator defaultChartGenerator, IChartValidator chartValidator, IJsTemplateWriter jsTemplateWriter, Data<BubbleDataset> data) : base(defaultChartGenerator, chartValidator, jsTemplateWriter)
+        public BubbleChartBuilder(IDefaultChartGenerator defaultChartGenerator, IChartValidator chartValidator, IChartJsonHelper chartJsonHelper, Data<BubbleDataset> data) : base(defaultChartGenerator, chartValidator, chartJsonHelper)
         {
             base.Chart = defaultChartGenerator.GenerateBubbleChart();
             base.Chart.Data = data;
         }
 
-        public override Chart<BubbleDataset> BuildChart()
+        public override string BuildChart()
         {
             var errors = new List<string>(); 
 
             chartValidator.IsValid(Chart,out errors);
-			jsTemplateWriter.OverwriteTemplate(Chart);
 
-			return Chart;
+			return chartJsonHelper.OverwriteTemplate(Chart);
         }
     }
 }

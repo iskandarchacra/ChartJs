@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using ChartJs.Models;
 using ChartJs.Models.Datasets;
 using ChartJs.Models.Options.BarChart;
@@ -10,21 +11,20 @@ namespace ChartJs.Services.Builders.ChartBuilders
 {
     public class HorizontalBarChartBuilder : BarChartBuilder
     {
-        public HorizontalBarChartBuilder(IDefaultChartGenerator defaultChartGenerator, IChartValidator chartValidator, IJsTemplateWriter jsTemplateWriter, Data<BarDataset> data) : base(defaultChartGenerator, chartValidator, jsTemplateWriter, data)
+        public HorizontalBarChartBuilder(IDefaultChartGenerator defaultChartGenerator, IChartValidator chartValidator, IChartJsonHelper chartJsonHelper, Data<BarDataset> data) : base(defaultChartGenerator, chartValidator, chartJsonHelper, data)
         {
 			Chart = defaultChartGenerator.GenerateHorizontalBarChart();
 			ChartOptions = (BarChartOptions)Chart.Options;
 			Chart.Data = data;
 		}
 
-        public override Chart<BarDataset> BuildChart()
+        public override string BuildChart()
         {
 			var errors = new List<string>();
 
 			chartValidator.IsValid(Chart, out errors);
-			jsTemplateWriter.OverwriteTemplate(Chart);
 
-			return Chart;
+            return chartJsonHelper.OverwriteTemplate(Chart);
         }
     }
 }

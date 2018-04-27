@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using ChartJs.Models;
 using ChartJs.Models.Datasets;
 using ChartJs.Models.Options.RadarChart;
@@ -14,7 +15,7 @@ namespace ChartJs.Services.Builders
 
         protected override RadarChartBuilder BuilderInstance => this;
 
-        public RadarChartBuilder(IDefaultChartGenerator defaultChartGenerator, IChartValidator chartValidator, IJsTemplateWriter jsTemplateWriter, Data<RadarDataset> data) : base(defaultChartGenerator, chartValidator, jsTemplateWriter)
+        public RadarChartBuilder(IDefaultChartGenerator defaultChartGenerator, IChartValidator chartValidator, IChartJsonHelper chartJsonHelper, Data<RadarDataset> data) : base(defaultChartGenerator, chartValidator, chartJsonHelper)
         {
             Chart = defaultChartGenerator.GenerateRadarChart();
             radarScale = (RadarOptionsScale)Chart.Options.Scales;
@@ -34,15 +35,14 @@ namespace ChartJs.Services.Builders
             return this;
         }
 
-        public override Chart<RadarDataset> BuildChart()
+        public override string BuildChart()
         {
 			Chart.Options.Scales = radarScale;
 			var errors = new List<string>();
 
 			chartValidator.IsValid(Chart, out errors);
-			jsTemplateWriter.OverwriteTemplate(Chart);
 
-			return Chart;
+            return chartJsonHelper.OverwriteTemplate(Chart);
         }
     }
 }

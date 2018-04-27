@@ -4,6 +4,7 @@ using ChartJs.Services.DefaultValuesGenerator;
 using ChartJs.Services.TemplateWriter;
 using ChartJs.Services.Validators;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ChartJs.Services
 {
@@ -15,13 +16,13 @@ namespace ChartJs.Services
         protected abstract TBuilder BuilderInstance { get; }
         protected readonly IDefaultChartGenerator defaultChartGenerator;
         protected readonly IChartValidator chartValidator;
-        protected readonly IJsTemplateWriter jsTemplateWriter;
+        protected readonly IChartJsonHelper chartJsonHelper;
 
-        protected ChartBuilder(IDefaultChartGenerator defaultChartGenerator, IChartValidator chartValidator, IJsTemplateWriter jsTemplateWriter)
+        protected ChartBuilder(IDefaultChartGenerator defaultChartGenerator, IChartValidator chartValidator, IChartJsonHelper chartJsonHelper)
         {
             this.defaultChartGenerator = defaultChartGenerator;
             this.chartValidator = chartValidator;
-            this.jsTemplateWriter = jsTemplateWriter;
+            this.chartJsonHelper = chartJsonHelper;
 		}
 
         public TBuilder SetChartAnimation(AnimationType animation) 
@@ -440,6 +441,6 @@ namespace ChartJs.Services
 			return BuilderInstance;
 		}
 
-        public abstract Chart<TDataset> BuildChart();
+        public abstract string BuildChart();
 	}
 }

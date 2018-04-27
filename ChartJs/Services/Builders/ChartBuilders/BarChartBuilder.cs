@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using ChartJs.Models;
 using ChartJs.Models.Datasets;
 using ChartJs.Models.Options.BarChart;
@@ -15,7 +14,7 @@ namespace ChartJs.Services.Builders
 
         protected override BarChartBuilder BuilderInstance => this;
 
-        public BarChartBuilder(IDefaultChartGenerator defaultChartGenerator, IChartValidator chartValidator, IJsTemplateWriter jsTemplateWriter, Data<BarDataset> data) : base(defaultChartGenerator, chartValidator, jsTemplateWriter)
+        public BarChartBuilder(IDefaultChartGenerator defaultChartGenerator, IChartValidator chartValidator, IChartJsonHelper chartJsonHelper, Data<BarDataset> data) : base(defaultChartGenerator, chartValidator, chartJsonHelper)
         {
             base.Chart = defaultChartGenerator.GenerateBarChart();
             base.Chart.Data = data;
@@ -101,15 +100,14 @@ namespace ChartJs.Services.Builders
             return this;
         }
 
-        public override Chart<BarDataset> BuildChart()
+        public override string BuildChart()
         {
             var errors = new List<string>();
 
             base.Chart.Options = ChartOptions;
 			chartValidator.IsValid(Chart, out errors);
-            jsTemplateWriter.OverwriteTemplate(Chart);
 
-            return Chart;
+            return chartJsonHelper.OverwriteTemplate(Chart);
         }
     }
 }

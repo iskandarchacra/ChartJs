@@ -1,5 +1,4 @@
-var CHART = document.getElementById("{chartId}");
-Chart.defaults.global.animation.easing = '{animation}' ;
 Chart.defaults.scale.ticks.beginAtZero = true;
 Chart.defaults.global.hover.mode = 'nearest';
-var myChart = new Chart(CHART, {chart});
+Chart.defaults.global.animation.easing = '{ANIMATION}' ;
+var generatedChart = new Chart({CHART_VARIABLE}, {CHART_JSON});

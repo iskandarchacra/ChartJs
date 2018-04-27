@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using ChartJs.Models;
 using ChartJs.Models.Datasets;
 using ChartJs.Models.Options.LineChart;
@@ -14,8 +15,8 @@ namespace ChartJs.Services.Builders
 
         protected override LineChartBuilder BuilderInstance => this;
 
-        public LineChartBuilder(IDefaultChartGenerator defaultChartGenerator, IChartValidator chartValidator, IJsTemplateWriter jsTemplateWriter, Data<LineDataset> data) 
-            : base(defaultChartGenerator, chartValidator, jsTemplateWriter)
+        public LineChartBuilder(IDefaultChartGenerator defaultChartGenerator, IChartValidator chartValidator, IChartJsonHelper chartJsonHelper, Data<LineDataset> data) 
+            : base(defaultChartGenerator, chartValidator, chartJsonHelper)
         {
             base.Chart = defaultChartGenerator.GenerateLineChart();
             base.Chart.Data = data;
@@ -61,15 +62,14 @@ namespace ChartJs.Services.Builders
             return this;
         }
 
-        public override Chart<LineDataset> BuildChart()
+        public override string BuildChart()
         {
             Chart.Options = chartOptions;
 			var errors = new List<string>();
 
 			chartValidator.IsValid(Chart, out errors);
-			jsTemplateWriter.OverwriteTemplate(Chart);
 
-			return Chart;
+            return chartJsonHelper.OverwriteTemplate(Chart);
         }
     }
 }

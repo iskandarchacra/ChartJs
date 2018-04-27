@@ -15,20 +15,20 @@ namespace ChartJs.Services.Builders.DataBuilders
 		{
             readonly IRandomColorGenerator randomColorGenerator;
             readonly IChartValidator chartValidator;
-            readonly IJsTemplateWriter jsTemplateWriter;
+            readonly IChartJsonHelper chartJsonHelper;
             readonly IDefaultChartGenerator defaultChartGenerator;
 
-            public LineDataStepsBuilder(IRandomColorGenerator randomColorGenerator, IChartValidator chartValidator, IJsTemplateWriter jsTemplateWriter, IDefaultChartGenerator defaultChartGenerator)
+            public LineDataStepsBuilder(IRandomColorGenerator randomColorGenerator, IChartValidator chartValidator, IChartJsonHelper chartJsonHelper, IDefaultChartGenerator defaultChartGenerator)
 			{
                 this.randomColorGenerator = randomColorGenerator;
                 this.chartValidator = chartValidator;
-                this.jsTemplateWriter = jsTemplateWriter;
+                this.chartJsonHelper = chartJsonHelper;
                 this.defaultChartGenerator = defaultChartGenerator;
             }
 
 			public ICreateLineDataBuilderStep StartBuildingChartData()
 			{
-				return new LineDataBuilder(randomColorGenerator, chartValidator, jsTemplateWriter, defaultChartGenerator);
+				return new LineDataBuilder(randomColorGenerator, chartValidator, chartJsonHelper, defaultChartGenerator);
 			}
 
 			public interface ICreateLineDataBuilderStep
@@ -47,16 +47,16 @@ namespace ChartJs.Services.Builders.DataBuilders
     {
         readonly IRandomColorGenerator randomColorGenerator;
         readonly IChartValidator chartValidator;
-        readonly IJsTemplateWriter jsTemplateWriter;
+        readonly IChartJsonHelper chartJsonHelper;
         readonly IDefaultChartGenerator defaultChartGenerator;
         protected Data<LineDataset> data;
 		protected int index = -1;
 
-        public LineDataBuilder(IRandomColorGenerator randomColorGenerator, IChartValidator chartValidator, IJsTemplateWriter jsTemplateWriter, IDefaultChartGenerator defaultChartGenerator)
+        public LineDataBuilder(IRandomColorGenerator randomColorGenerator, IChartValidator chartValidator, IChartJsonHelper chartJsonHelper, IDefaultChartGenerator defaultChartGenerator)
         {
             this.randomColorGenerator = randomColorGenerator;
             this.chartValidator = chartValidator;
-            this.jsTemplateWriter = jsTemplateWriter;
+            this.chartJsonHelper = chartJsonHelper;
             this.defaultChartGenerator = defaultChartGenerator;
 
             data = new Data<LineDataset>
@@ -348,7 +348,7 @@ namespace ChartJs.Services.Builders.DataBuilders
 
         public LineChartBuilder CreateDataAndStartBuildingChart()
         {
-            return new LineChartBuilder(defaultChartGenerator, chartValidator, jsTemplateWriter, data);
+            return new LineChartBuilder(defaultChartGenerator, chartValidator, chartJsonHelper, data);
         }
     }
 }

@@ -10,22 +10,22 @@ namespace ChartJs.Services.Builders.ChartBuilders
 {
     public class PieChartBuilder : DoughnutChartBuilder
     {
-        public PieChartBuilder(IDefaultChartGenerator defaultChartGenerator, IChartValidator chartValidator, IJsTemplateWriter jsTemplateWriter, Data<DoughnutDataset> data) : base(defaultChartGenerator, chartValidator, jsTemplateWriter, data)
+        public PieChartBuilder(IDefaultChartGenerator defaultChartGenerator, IChartValidator chartValidator, IChartJsonHelper chartJsonHelper, Data<DoughnutDataset> data) : base(defaultChartGenerator, chartValidator, chartJsonHelper, data)
         {
             Chart = defaultChartGenerator.GeneratePieChart();
 			Chart.Data = data;
-		}
+            ChartOptions = (DoughnutChartOptions)base.Chart.Options;
+        }
 
-        public override Chart<DoughnutDataset> BuildChart()
+        public override string BuildChart()
         {
-            Chart.Options = chartOptions;
+            Chart.Options = ChartOptions;
 
 			var errors = new List<string>();
 
 			chartValidator.IsValid(Chart, out errors);
-			jsTemplateWriter.OverwriteTemplate(Chart);
 
-			return Chart;
+            return chartJsonHelper.OverwriteTemplate(Chart);
         }
     }
 }
