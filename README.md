@@ -1,5 +1,8 @@
 ## [Install Chart.Js](http://www.chartjs.org/docs/latest/getting-started/installation.html)
 
+## NuGet Package
+**Install-Package ChartJsGenerator -Version 2.0.6**
+
 ## Steps for adding a Chart:
 1. Create a `<canvas>` element in your HTML file and give it an id.
 2. Get canvas element by ID in your JavaScript file and save it in a variable.
