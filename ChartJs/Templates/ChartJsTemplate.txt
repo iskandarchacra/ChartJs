@@ -1,4 +1,0 @@
-Chart.defaults.scale.ticks.beginAtZero = true;
-Chart.defaults.global.hover.mode = 'nearest';
-Chart.defaults.global.animation.easing = '{ANIMATION}' ;
-var generatedChart = new Chart({CHART_VARIABLE}, {CHART_JSON});

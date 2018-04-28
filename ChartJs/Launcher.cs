@@ -1,6 +1,4 @@
-﻿using ChartJs.Services.Builders;
-
-namespace ChartJs
+﻿namespace ChartJs
 {
     public class Launcher
 	{

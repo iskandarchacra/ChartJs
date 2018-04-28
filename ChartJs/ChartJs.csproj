@@ -12,17 +12,12 @@
 For more information visit:
 https://github.com/iskandarchacra/ChartJs/</Description>
     <Product>ChartJs Generator</Product>
-    <Version>2.0.1</Version>
+    <Version>2.0.6</Version>
     <PackageIconUrl>https://www.chartjs.org/img/chartjs-logo.svg</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Services\ResourceHelpers\" />
-    <EmbeddedResource Include="Templates\*.txt" />
   </ItemGroup>
 
 </Project>

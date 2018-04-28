@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ChartJsGenerator</id>
+    <version>2.0.6</version>
+    <authors>Iskandar Chacra</authors>
+    <owners>Iskandar Chacra</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>https://www.chartjs.org/img/chartjs-logo.svg</iconUrl>
+    <description>A library used to create charts using Chart.Js. (https://www.chartjs.org/)
+For more information visit:
+https://github.com/iskandarchacra/ChartJs/</description>
+    <dependencies>
+      <group targetFramework=".NETCoreApp2.0">
+        <dependency id="Microsoft.NETCore.App" version="2.0.0" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="11.0.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\iskan\source\ChartJs\ChartJs\bin\Release\netcoreapp2.0\ChartJs.runtimeconfig.json" target="lib\netcoreapp2.0\ChartJs.runtimeconfig.json" />
+    <file src="C:\Users\iskan\source\ChartJs\ChartJs\bin\Release\netcoreapp2.0\ChartJs.dll" target="lib\netcoreapp2.0\ChartJs.dll" />
+  </files>
+</package>
