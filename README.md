@@ -4,8 +4,10 @@
 1. Create a `<canvas>` element in your HTML file and give it an id.
 2. Get canvas element by ID in your JavaScript file and save it in a variable.
 3. Pass the ChartJsBuilder constructor the name of the variable.
-4. Calling `BuildChart()` will return a string.
-5. Add the string returned to your JavaScript file.
+4. Call `StartBuildingChartData()` and add Datalabels and Dataset(s). Other methods are optional and are used for customization purposes.
+6. Call `CreateDataAndStartBuildingChart()` to build chart options.
+7. Calling `BuildChart()` will return a string.
+8. Add the string returned to your JavaScript file.
 
 ## Sample Charts: 
    - **Bar Chart:** 
