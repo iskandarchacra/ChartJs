@@ -10,36 +10,36 @@ namespace ChartJs.Services.Validators
         {
 			errors = new List<string>();
 
-            if(chart.Data.Datasets.Count == 0)
+            if (chart.Data.Datasets.Count == 0)
             {
                 errors.Add("No datasets added to the chart.");
             }
 
-            if(chart.Data.Labels.Length == 0)
+            if (chart.Data.Labels.Length == 0)
             {
                 errors.Add("No data labels added to the chart.");
             }
 
-            if(chart.Data.Datasets.Count < chart.Data.Labels.Length)
+            if (chart.Data.Datasets.Count < chart.Data.Labels.Length)
             {
                 errors.Add("The number of datasets is less than the number of labels.");
             }
 
-            if(chart.Data.Datasets.Count > chart.Data.Labels.Length)
+            if (chart.Data.Datasets.Count > chart.Data.Labels.Length)
             {
                 errors.Add("The number of datasets is less than the number of labels");
             }
 
-            foreach(var dataset in chart.Data.Datasets)
+            foreach (var dataset in chart.Data.Datasets)
             {
                 var datasetIndex = 1;
 
-                if(dataset.Data.Length > dataset.BackgroundColor.Length)
+                if (dataset.Data.Length > dataset.BackgroundColor.Length)
                 {
                     errors.Add("There is more data in dataset " + datasetIndex + " than background colors specified. Add more background colors.");
                 }
 
-                if(string.IsNullOrEmpty(dataset.Label))
+                if (string.IsNullOrEmpty(dataset.Label))
                 {
                     errors.Add("Dataset " + datasetIndex + " is missing a label");
                 }

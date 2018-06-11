@@ -17,16 +17,16 @@ namespace ChartJs.Services.Utility
 				y = GetRandomNumber();
 				z = GetRandomNumber();
 
-                colorList.Add("rgba(" + x + ", " + y + ", " + z + ", " + "0.5)");
+                colorList.Add($"rgba({x}, {y}, {z}, 0.5)");
 			}
 
 			x = GetRandomNumber();
 			y = GetRandomNumber();
 			z = GetRandomNumber();
 
-            colorList.Add( "rgba(" + x + ", " + y + ", " + z + ", " + "0.5)");
+            colorList.Add($"rgba({x}, {y}, {z}, 0.5)");
 
-			return colorList.ToArray();
+            return colorList.ToArray();
 		}
 
 		public string[] GenerateColorsForBubblePointList(List<BubblePoint>bubblePointList)
@@ -39,12 +39,12 @@ namespace ChartJs.Services.Utility
 
 			for (int i = 0; i < bubblePointList.Count - 1; i++)
 			{
-                colorList.Add("rgba(" + x + ", " + y + ", " + z + ", " + "0.5)");
-			}
+                colorList.Add($"rgba({x}, {y}, {z}, 0.5)");
+            }
 
-            colorList.Add("rgba(" + x + ", " + y + ", " + z + ", " + "0.5)");
+            colorList.Add($"rgba({x}, {y}, {z}, 0.5)");
 
-			return colorList.ToArray();
+            return colorList.ToArray();
 		}
 
 		public static int GetRandomNumber()

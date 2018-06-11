@@ -45,7 +45,7 @@ namespace ChartJs.Services.DefaultValuesGenerator
             xAxes = new Axes
             {
                 Type = ScaleType.category,
-                Display = false,
+                Display = true,
                 Position = PositionType.bottom,
 				GridLines = new Grid
 				{

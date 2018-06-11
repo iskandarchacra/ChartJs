@@ -3,8 +3,6 @@ using ChartJs.Models.Datasets;
 using ChartJs.Services.DefaultValuesGenerator;
 using ChartJs.Services.TemplateWriter;
 using ChartJs.Services.Validators;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace ChartJs.Services
 {
@@ -80,12 +78,14 @@ namespace ChartJs.Services
 			return BuilderInstance;
 		}
 
-		/// <summary>
-		/// Type of X scale being employed.
-		/// </summary>
-		/// <returns>The X A xes scales type.</returns>
-		/// <param name="type">Type.</param>
-		public TBuilder SetXAxesScalesType(ScaleType type)
+        #region XAxes
+
+        /// <summary>
+        /// Type of X scale being employed.
+        /// </summary>
+        /// <returns>The X A xes scales type.</returns>
+        /// <param name="type">Type.</param>
+        public TBuilder SetXAxesScalesType(ScaleType type)
 		{
 			Chart.Options.Scales.XAxes[0].Type = type;
 
@@ -141,11 +141,123 @@ namespace ChartJs.Services
 		}
 
         /// <summary>
+        /// If true, show tick marks
+        /// </summary>
+        /// <param name="display"></param>
+        /// <returns></returns>
+        public TBuilder SetXAxesTicksDisplay(bool display)
+        {
+            Chart.Options.Scales.XAxes[0].Ticks.Display = display;
+
+            return BuilderInstance;
+        }
+
+        /// <summary>
+        /// Font color for tick labels.
+        /// </summary>
+        /// <param name="fontColor"></param>
+        /// <returns></returns>
+        public TBuilder SetXAxesTicksFontColor(string fontColor)
+        {
+            Chart.Options.Scales.XAxes[0].Ticks.FontColor = fontColor;
+
+            return BuilderInstance;
+        }
+
+        /// <summary>
+        /// Font family for the tick labels, follows CSS font-family options.
+        /// </summary>
+        /// <param name="fontFamily"></param>
+        /// <returns></returns>
+        public TBuilder SetXAxesTicksFontFamily(string fontFamily)
+        {
+            Chart.Options.Scales.XAxes[0].Ticks.FontFamily = fontFamily;
+
+            return BuilderInstance;
+        }
+
+        /// <summary>
+        /// Font size for the tick labels.
+        /// </summary>
+        /// <param name="fontSize"></param>
+        /// <returns></returns>
+        public TBuilder SetXAxesTicksFontSize(int fontSize)
+        {
+            Chart.Options.Scales.XAxes[0].Ticks.FontSize = fontSize;
+
+            return BuilderInstance;
+        }
+
+        /// <summary>
+        /// Font size for the tick labels.
+        /// </summary>
+        /// <param name="fontStyle"></param>
+        /// <returns></returns>
+        public TBuilder SetXAxesTicksFontStyle(FontStyleType fontStyle)
+        {
+            Chart.Options.Scales.XAxes[0].Ticks.FontStyle = fontStyle;
+
+            return BuilderInstance;
+        }
+
+        /// <summary>
+        /// Font color for tick labels.
+        /// </summary>
+        /// <param name="fontColor"></param>
+        /// <returns></returns>
+        public TBuilder SetXAxesTicksMajorFontColor(string fontColor)
+        {
+            Chart.Options.Scales.XAxes[0].Ticks.Major.FontColor = fontColor;
+
+            return BuilderInstance;
+        }
+
+        /// <summary>
+        /// Font family for the tick labels, follows CSS font-family options.
+        /// </summary>
+        /// <param name="fontFamily"></param>
+        /// <returns></returns>
+        public TBuilder SetXAxesTicksMajorFontFamily(string fontFamily)
+        {
+            Chart.Options.Scales.XAxes[0].Ticks.Major.FontFamily = fontFamily;
+
+            return BuilderInstance;
+        }
+
+        /// <summary>
+        /// Font size for the tick labels.
+        /// </summary>
+        /// <param name="fontSize"></param>
+        /// <returns></returns>
+        public TBuilder SetXAxesTicksMajorFontSize(int fontSize)
+        {
+            Chart.Options.Scales.XAxes[0].Ticks.Major.FontSize = fontSize;
+
+            return BuilderInstance;
+        }
+
+        /// <summary>
+        /// Font style for the tick labels, follows CSS font-style options (i.e. normal, italic, oblique, initial, inherit).
+        /// </summary>
+        /// <param name="fontStyle"></param>
+        /// <returns></returns>
+        public TBuilder SetXAxesTicksMajorFontStyle(FontStyleType fontStyle)
+        {
+            Chart.Options.Scales.XAxes[0].Ticks.Major.FontStyle = fontStyle;
+
+            return BuilderInstance;
+        }
+
+        #endregion
+
+        #region YAxes
+
+        /// <summary>
         /// Type of Y scale being employed.
         /// </summary>
         /// <returns>The YA xes scales type.</returns>
         /// <param name="type">Type.</param>
-		public TBuilder SetYAxesScalesType(ScaleType type)
+        public TBuilder SetYAxesScalesType(ScaleType type)
 		{
 			Chart.Options.Scales.YAxes[0].Type = type;
 
@@ -201,11 +313,121 @@ namespace ChartJs.Services
 		}
 
         /// <summary>
+        /// If true, show tick marks
+        /// </summary>
+        /// <param name="display"></param>
+        /// <returns></returns>
+        public TBuilder SetYAxesTicksDisplay(bool display)
+        {
+            Chart.Options.Scales.YAxes[0].Ticks.Display = display;
+
+            return BuilderInstance;
+        }
+
+        /// <summary>
+        /// Font color for tick labels.
+        /// </summary>
+        /// <param name="fontColor"></param>
+        /// <returns></returns>
+        public TBuilder SetYAxesTicksFontColor(string fontColor)
+        {
+            Chart.Options.Scales.YAxes[0].Ticks.FontColor = fontColor;
+
+            return BuilderInstance;
+        }
+
+        /// <summary>
+        /// Font family for the tick labels, follows CSS font-family options.
+        /// </summary>
+        /// <param name="fontFamily"></param>
+        /// <returns></returns>
+        public TBuilder SetYAxesTicksFontFamily(string fontFamily)
+        {
+            Chart.Options.Scales.YAxes[0].Ticks.FontFamily = fontFamily;
+
+            return BuilderInstance;
+        }
+
+        /// <summary>
+        /// Font size for the tick labels.
+        /// </summary>
+        /// <param name="fontSize"></param>
+        /// <returns></returns>
+        public TBuilder SetYAxesTicksFontSize(int fontSize)
+        {
+            Chart.Options.Scales.YAxes[0].Ticks.FontSize = fontSize;
+
+            return BuilderInstance;
+        }
+
+        /// <summary>
+        /// Font size for the tick labels.
+        /// </summary>
+        /// <param name="fontStyle"></param>
+        /// <returns></returns>
+        public TBuilder SetYAxesTicksFontStyle(FontStyleType fontStyle)
+        {
+            Chart.Options.Scales.YAxes[0].Ticks.FontStyle = fontStyle;
+
+            return BuilderInstance;
+        }
+
+        /// <summary>
+        /// Font color for tick labels.
+        /// </summary>
+        /// <param name="fontColor"></param>
+        /// <returns></returns>
+        public TBuilder SetYAxesTicksMajorFontColor(string fontColor)
+        {
+            Chart.Options.Scales.YAxes[0].Ticks.Major.FontColor = fontColor;
+
+            return BuilderInstance;
+        }
+
+        /// <summary>
+        /// Font family for the tick labels, follows CSS font-family options.
+        /// </summary>
+        /// <param name="fontFamily"></param>
+        /// <returns></returns>
+        public TBuilder SetYAxesTicksMajorFontFamily(string fontFamily)
+        {
+            Chart.Options.Scales.YAxes[0].Ticks.Major.FontFamily = fontFamily;
+
+            return BuilderInstance;
+        }
+
+        /// <summary>
+        /// Font size for the tick labels.
+        /// </summary>
+        /// <param name="fontSize"></param>
+        /// <returns></returns>
+        public TBuilder SetYAxesTicksMajorFontSize(int fontSize)
+        {
+            Chart.Options.Scales.YAxes[0].Ticks.Major.FontSize = fontSize;
+
+            return BuilderInstance;
+        }
+
+        /// <summary>
+        /// Font style for the tick labels, follows CSS font-style options (i.e. normal, italic, oblique, initial, inherit).
+        /// </summary>
+        /// <param name="fontStyle"></param>
+        /// <returns></returns>
+        public TBuilder SetYAxesTicksMajorFontStyle(FontStyleType fontStyle)
+        {
+            Chart.Options.Scales.YAxes[0].Ticks.Major.FontStyle = fontStyle;
+
+            return BuilderInstance;
+        }
+
+        #endregion
+
+        /// <summary>
         /// Sets whether the legend is displayed or not.
         /// </summary>
         /// <returns>The legend display.</returns>
         /// <param name="legendDisplay">If set to <c>true</c> legend display.</param>
-		public TBuilder SetLegendDisplay(bool legendDisplay)
+        public TBuilder SetLegendDisplay(bool legendDisplay)
 		{
 			Chart.Options.Legend.Display = legendDisplay;
 
@@ -441,6 +663,7 @@ namespace ChartJs.Services
 			return BuilderInstance;
 		}
 
+        
         public abstract string BuildChart();
 	}
 }

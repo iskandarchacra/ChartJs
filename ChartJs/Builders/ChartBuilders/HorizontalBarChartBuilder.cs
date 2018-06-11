@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using ChartJs.Models;
 using ChartJs.Models.Datasets;
 using ChartJs.Models.Options.BarChart;
