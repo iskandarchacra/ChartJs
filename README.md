@@ -3,7 +3,7 @@
 ## Install ChartJsGenerator 
 From NuGet package manager console
 ```
-PM> Install-Package ChartJsGenerator -Version 2.0.6
+PM> Install-Package ChartJsGenerator -Version 2.0.7
 ```
 
 ## Steps for adding a Chart:
